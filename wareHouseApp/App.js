@@ -6,14 +6,27 @@
  * @flow strict-local
  */
 
+import { height } from '@mui/system';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TextInput } from 'react-native';
+import logo from './images/logo.png';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Image source = {require('../images/logo.PNG')} />
-      <Text>Open up mayank to start working on your app!</Text>
+    <View style={styles.container} >
+      <Image
+        style={{height: 100, width: 400}}
+        source={logo}
+      />
+      <view style={{paddingTop:'20%'}}></view>
+      <TextInput style={styles.inputView}
+        placeholder="username"
+      />
+      <view style={{paddingTop:'10%'}}></view>
+      <TextInput style={styles.inputView}
+        placeholder="password"
+        secureTextEntry={true}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -22,8 +35,20 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    justifyContent: 'top',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'white',
   },
+  text: {
+    paddingTop: '200px',
+  },
+  inputView:{
+    borderRadius: '50px',
+    backgroundColor: 'lightgreen',
+    width: "60%",
+    height: "5%",
+    textAlign: 'center'
+  }
 });
+
+export default App;
